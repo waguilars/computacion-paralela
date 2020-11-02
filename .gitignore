@@ -127,3 +127,17 @@ dkms.conf
 
 # End of https://www.toptal.com/developers/gitignore/api/c
 n
+# Created by https://www.toptal.com/developers/gitignore/api/code
+# Edit at https://www.toptal.com/developers/gitignore?templates=code
+
+### Code ###
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+.vscode/*
+
+# End of https://www.toptal.com/developers/gitignore/api/code
+n
+

@@ -5,6 +5,7 @@
 int main()
 {
   char str1[256], str2[256];
+  int last_index;
 
   printf("Ingrese la primera cadena: ");
   fgets(str1, sizeof(str1), stdin);
@@ -24,11 +25,11 @@ int main()
         memcpy(new_str, &str1[i], strlen(str2));
         if (strcmp(new_str, str2) == 0)
         {
-          printf("The first occurence is in the index: %d\n", i);
-          break;
+          last_index = i;
         }
       }
     }
+    printf("The last occurence is in the index: %d\n", last_index);
   }
   else
   {
