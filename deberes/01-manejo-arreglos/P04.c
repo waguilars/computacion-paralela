@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <stdbool.h>
 
 void fill_temp(float arr[7][24], int rows, int cols)
 {
@@ -21,6 +22,9 @@ void fill_temp(float arr[7][24], int rows, int cols)
 int main()
 {
   char *week_days[7] = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+
+  bool days_over30[7] = {false, false, false, false, false, false, false};
+
   float temp[7][24];
   int rows = sizeof(temp) / sizeof(temp[0]);
   int cols = sizeof(temp[0]) / sizeof(temp[0][0]);
@@ -30,7 +34,7 @@ int main()
   // Eval
   float min_week_temp, max_week_temp, min_day_temp[7], max_day_temp[7], mean_day_temp[7];
   double mean_week_temp;
-  int days_over30 = 0;
+  // int days_over30 = 0;
 
   min_week_temp = temp[0][0];
   max_week_temp = temp[0][0];
@@ -81,7 +85,7 @@ int main()
     // Cheack days when the mean temp is over 30°c
     if (mean_day_temp[i] > 30)
     {
-      days_over30++;
+      days_over30[i] = true;
     }
 
     // printf("\n");
@@ -99,7 +103,14 @@ int main()
 
   printf("\n* All the week:\n\tmin: %.2f°c, max: %.2f°c, mean: %.2f°c\n", min_week_temp, max_week_temp, mean_week_temp);
 
-  printf("Days when the temp was over 30°c: %d\n", days_over30);
+  printf("Days when the temp was over 30°c: \n");
+  for (size_t i = 0; i < rows; i++)
+  {
+    if (days_over30[i])
+    {
+      printf("\t* %s\n", week_days[i]);
+    }
+  }
 
   return 0;
 }
