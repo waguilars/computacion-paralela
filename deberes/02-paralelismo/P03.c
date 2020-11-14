@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <omp.h>
+/* Escribir un programa que permita calcular el MCM y el MCD de 2 *Números enteros positivos. */
 
 int mcd(int a, int b)
 {
