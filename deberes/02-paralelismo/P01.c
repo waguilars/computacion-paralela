@@ -2,6 +2,14 @@
 #include <omp.h>
 #include <stdbool.h>
 
+/**
+ * @author Wilson Aguilar
+ *
+ * Construir un programa que nos diga sí cada número (entero) de una lista
+ * de N enteros es o no es primo.
+ * Recuerda: un número primo es aquel que sólo es divisible por sí mismo y por 1.
+ *
+*/
 int main()
 {
   int numbers[] = {2, 3, 4, 5, 6, 7, 8, 9, 10};
