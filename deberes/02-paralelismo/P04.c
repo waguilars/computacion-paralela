@@ -35,7 +35,7 @@ int main()
     return 1;
   }
 
-  // printf("x -> %f\n", x);
+  printf("x -> %f\n", x);
   omp_set_num_threads(n);
 #pragma omp parallel shared(x) private(n) reduction(+: res)
   {
