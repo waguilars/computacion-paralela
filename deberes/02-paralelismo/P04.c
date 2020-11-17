@@ -22,7 +22,7 @@ long int factorize(int value)
 
 int main()
 {
-  int n = 5;
+  int n = 2;
   float x,
         res = 0;
 
