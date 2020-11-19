@@ -7,7 +7,6 @@
 int *split_in_digits(int number, int digits)
 {
   //Get number of digits
-
   int *digits_array = (int *)malloc(sizeof(int) * digits);
 
   for (size_t i = 0; i < digits; i++)
@@ -27,7 +26,8 @@ int main()
   int *digits = split_in_digits(x, n);
 
   omp_set_num_threads(n);
-  // #pragma omp parallel for shared(digits, n) reduction(+ \
+
+    // #pragma omp parallel for shared(digits, n) reduction(+ \
 //                                                      : sum)
   // for (size_t i = 0; i < n; i++)
   // {
@@ -41,7 +41,7 @@ int main()
                                                     : sum)
   {
     int tid = omp_get_thread_num();
-    printf("d -> %d \n", digits[tid]);
+    // printf("d -> %d \n", digits[tid]);
     int cube = pow(digits[tid], 3);
     sum = cube;
   }

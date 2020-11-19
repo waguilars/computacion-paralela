@@ -21,7 +21,7 @@ int main()
 
   for (size_t i = 0; i < len; i++)
   {
-    printf("Ingrese el %d elemento: \n", i);
+    printf("Ingrese el %ld elemento: \n", i);
     scanf(" %c", &characters[i]);
   }
   omp_set_num_threads(3);

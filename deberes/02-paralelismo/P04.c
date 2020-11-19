@@ -22,22 +22,26 @@ long int factorize(int value)
 
 int main()
 {
-  int n = 2;
+  int n;
   float x,
-        res = 0;
+      res = 0;
 
   printf("Ingrese x, x debe cumplir la condicion 0 <= x <= 1: ");
   scanf("%f", &x);
 
+  printf("Ingrese n: ");
+  scanf("%d", &n);
+
   if (x < 0 && x > 1)
   {
-    printf("X no cumple la condicion!\n");
+    printf("\nX no cumple la condicion!\n");
     return 1;
   }
 
-  printf("x -> %f\n", x);
+  printf("\nx -> %f\n", x);
   omp_set_num_threads(n);
-#pragma omp parallel shared(x) private(n) reduction(+: res)
+#pragma omp parallel shared(x) private(n) reduction(+ \
+                                                    : res)
   {
     int tid = omp_get_thread_num();
     float value;
