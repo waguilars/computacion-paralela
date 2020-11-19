@@ -22,19 +22,28 @@ int *split_in_digits(int number, int digits)
 int main()
 {
   int n = 3,   // digits number
-      x = 153, // number to eval
+      x = 407, // number to eval
       sum = 0;
   int *digits = split_in_digits(x, n);
 
-  omp_set_num_threads(4);
-#pragma omp parallel for shared(digits, n) reduction(+ \
-                                                     : sum)
-  for (size_t i = 0; i < n; i++)
+  omp_set_num_threads(n);
+  // #pragma omp parallel for shared(digits, n) reduction(+ \
+//                                                      : sum)
+  // for (size_t i = 0; i < n; i++)
+  // {
+  //   int tid = omp_get_thread_num();
+  //   int cube = pow(digits[i], 3);
+  //   printf("Thread %d: %d^3 = %d\n", tid, digits[i], cube);
+  //   sum += cube;
+  // }
+
+#pragma omp parallel firstprivate(digits) reduction(+ \
+                                                    : sum)
   {
     int tid = omp_get_thread_num();
+    printf("d -> %d \n", digits[tid]);
     int cube = pow(digits[tid], 3);
-    printf("Thread %d: %d^3 = %d\n", tid, digits[tid], cube);
-    sum += cube;
+    sum = cube;
   }
 
   printf("Suma: %d\n", sum);
