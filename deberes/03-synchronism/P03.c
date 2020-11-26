@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <math.h>
 #include <omp.h>
-
+/**
+ * @author Wilson Aguilar
+ */
 int main()
 {
   float p[] = {79.5, 53.5, 65.1, 52.9, 62.3},

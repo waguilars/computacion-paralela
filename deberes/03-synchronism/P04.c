@@ -3,7 +3,9 @@
 #include <omp.h>
 
 #define n 4
-
+/**
+ * @author Wilson Aguilar
+ */
 void print(int mtx[n][n])
 {
   for (size_t i = 0; i < n; i++)

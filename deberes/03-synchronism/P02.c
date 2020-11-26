@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <string.h>
 #include <omp.h>
-
+/**
+ * @author Wilson Aguilar
+ */
 int main()
 {
   char *code = "7702004003508";
