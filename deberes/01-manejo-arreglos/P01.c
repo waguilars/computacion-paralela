@@ -25,6 +25,18 @@ int main()
         if (strcmp(new_str, str2) == 0)
         {
           printf("The first occurence is in the index: %d\n", i);
+          for (size_t j = 0; j < strlen(str1); j++)
+          {
+            if (j >= i && j <= i + strlen(str2))
+            {
+              printf("");
+            }
+            else
+            {
+              printf("%c", str1[j]);
+            }
+          }
+
           break;
         }
       }
